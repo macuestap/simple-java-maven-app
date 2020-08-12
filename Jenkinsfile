@@ -4,7 +4,7 @@ pipeline {
     tools {
       maven 'Maven 3.6'
       }
-      
+
     stages{
         stage('checkout'){
             steps{
@@ -19,7 +19,8 @@ pipeline {
             }
         }
         stage('build'){
-            post {
+           steps{
+             post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
@@ -28,5 +29,6 @@ pipeline {
             }
         }
       }
+    }
   }
 }
